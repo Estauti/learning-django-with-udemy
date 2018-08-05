@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listagem de Pessoas</title>
+</head>
+<body>
+    
+    <h1>Listagem de Pessoas</h1>
+    <ol>
+        {% for person in persons %}
+            <li>{{person}} - <a href="{% url 'person_edit' person.id %}">Editar</a> - <a href="{% url 'person_delete' person.id%}">Deletar</a></li>
+        {% endfor %}
+    </ol>
+    <p style="margin-top: 100px;"><a href="{% url 'home' %}">Voltar para a Home</a><p>
+    <p><a href="{% url 'person_new' %}">Cadastrar nova Pessoa</a></p>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <h3>Pessoas</h3>
+    <ul>
+        <li><a href="{% url 'person_list' %}">Ver todas as Pessoas</a></li>
+        <li><a href="{% url 'person_new' %}">Cadastrar nova Pessoa</a></li>
+    </ul>
+    <h3>Carros</h3>
+    <ul>
+        <li>Ver todas os Carros</li>
+        <li>Cadastrar novo Carro</li>
+    </ul>    
+</body>
+</html>
