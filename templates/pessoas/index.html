@@ -18,6 +18,11 @@
         <li>Ver todas os Carros</li>
         <li>Cadastrar novo Carro</li>
     </ul>    
-    <p style="margin-top:100px;"><a href="{% url 'logout' %}" style="color:red;">Logout</a></p>
+    
+    {% if user.is_authenticated %}
+        <p style="margin-top:100px;"><a href="{% url 'logout' %}" style="color:red;">Logout</a></p>
+    {% else %}
+        <p style="margin-top:100px;"><a href="{% url 'login' %}" style="color:blue;">Fazer Login</a></p>
+    {% endif %}
 </body>
 </html>
