@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load bootstrap %}
 
 {% block title %}Login</title>{% endblock %}
     
@@ -6,7 +7,7 @@
     <h1>Faça seu Login</h1>
     <form method="POST" enctype="multipart/form-data">        
         {% csrf_token %}
-        {{form.as_p}}
+        {{form|bootstrap}}
         <input type="submit" value="Login" class="btn btn-primary">
     </form>
 {% endblock %}    
