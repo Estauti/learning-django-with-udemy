@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro Pessoa</title>
-</head>
-<body>
+{% extends 'base/base.html' %}
+
+{% block title %}Cadastro de Pessoa{% endblock %}
+
+{% block main %}
     
     <h2>Cadastre uma nova pessoa abaixo</h2>  
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
-        <input type="submit" value="Salvar">
+        <input type="submit" value="Salvar" class="btn btn-primary">
     </form>  
     <p style="margin-top: 100px;"><a href="{% url 'home' %}">Voltar para a Home</a><p></p>
     <p><a href="{% url 'person_list' %}">Ver todas as pessoas</a></p>
 
-</body>
-</html>
+{% endblock %}

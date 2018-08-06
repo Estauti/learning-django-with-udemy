@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-<body>
+{% extends 'base/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
     <h1>Home</h1>
     <h3>Pessoas</h3>
     <ul>
@@ -18,11 +14,10 @@
         <li>Ver todas os Carros</li>
         <li>Cadastrar novo Carro</li>
     </ul>    
-    
+
     {% if user.is_authenticated %}
-        <p style="margin-top:100px;"><a href="{% url 'logout' %}" style="color:red;">Logout</a></p>
+        <p style="margin-top:100px;"><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></p>
     {% else %}
-        <p style="margin-top:100px;"><a href="{% url 'login' %}" style="color:blue;">Fazer Login</a></p>
+        <p style="margin-top:100px;"><a href="{% url 'login' %}" class="btn btn-primary">Fazer Login</a></p>
     {% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Deletar Pessoa</title>
-</head>
-<body>
-    <h2>Tem certeza que quer deletar o {{person.nome_completo}}?</h2>
+{% extends 'base/base.html' %}
+
+{% block title %}Deletar Pessoa{% endblock %}
+
+{% block main %}
+    
+    <h2>Tem certeza que quer deletar o(a) {{person.nome_completo}}?</h2>
     
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="submit" value="Deletar">
+        <input type="submit" value="Deletar" class="btn btn-danger">        
     </form>
 
-</body>
-</html>
+    <a href="{% url 'person_list' %}">Voltar</a>
+
+{% endblock %}

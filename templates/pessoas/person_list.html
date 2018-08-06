@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listagem de Pessoas</title>
-</head>
-<body>
+{% extends 'base/base.html' %}
+
+{% block title %}Listagem de Pessoas{% endblock %}
     
+{% block main %}
+
     <h1>Listagem de Pessoas</h1>
     <ol>
         {% for person in persons %}
@@ -16,6 +12,5 @@
     </ol>
     <p style="margin-top: 100px;"><a href="{% url 'home' %}">Voltar para a Home</a><p>
     <p><a href="{% url 'person_new' %}">Cadastrar nova Pessoa</a></p>
-
-</body>
-</html>
+    
+{% endblock %}
