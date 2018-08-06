@@ -8,9 +8,10 @@
     
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="submit" value="Deletar" class="btn btn-danger">        
+        <div class="row" style="padding:15px;">
+            <input type="submit" value="Deletar" class="btn btn-danger">        
+            <a href="{% url 'person_list' %}" class="btn btn-secondary" style="margin-left:10px;">Voltar</a>
+        </div>
     </form>
-
-    <a href="{% url 'person_list' %}">Voltar</a>
 
 {% endblock %}

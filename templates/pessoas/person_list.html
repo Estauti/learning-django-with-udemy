@@ -5,11 +5,26 @@
 {% block main %}
 
     <h1>Listagem de Pessoas</h1>
-    <ol>
-        {% for person in persons %}
-            <li>{{person}} - <a href="{% url 'person_edit' person.id %}">Editar</a> - <a href="{% url 'person_delete' person.id%}">Deletar</a></li>
-        {% endfor %}
-    </ol>
+    <div style="padding:30px 0px 0px 30px;">
+        <ul class="list-group list-group-flush">    
+            {% for person in persons %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-4">
+                            {{person}}
+                        </div>
+                        <div class="col-1">
+                            <a href="{% url 'person_edit' person.id %}">Editar</a>
+                        </div>
+                        <div class="col-1">
+                            <a href="{% url 'person_delete' person.id%}">Deletar</a>
+                        </div>
+                    </div>
+                    
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
     <p style="margin-top: 100px;"><a href="{% url 'home' %}">Voltar para a Home</a><p>
     <p><a href="{% url 'person_new' %}">Cadastrar nova Pessoa</a></p>
     

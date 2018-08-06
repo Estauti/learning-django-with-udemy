@@ -4,20 +4,11 @@
 
 {% block main %}
     <h1>Home</h1>
-    <h3>Pessoas</h3>
-    <ul>
-        <li><a href="{% url 'person_list' %}">Ver todas as Pessoas</a></li>
-        <li><a href="{% url 'person_new' %}">Cadastrar nova Pessoa</a></li>
-    </ul>
-    <h3>Carros</h3>
-    <ul>
-        <li>Ver todas os Carros</li>
-        <li>Cadastrar novo Carro</li>
-    </ul>    
-
-    {% if user.is_authenticated %}
-        <p style="margin-top:100px;"><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></p>
-    {% else %}
-        <p style="margin-top:100px;"><a href="{% url 'login' %}" class="btn btn-primary">Fazer Login</a></p>
-    {% endif %}
+    <div style="padding-top:20px;">
+        <h3>Pessoas</h3>
+        <ul>
+            <li><a href="{% url 'person_list' %}">Ver todas as Pessoas</a></li>
+            <li><a href="{% url 'person_new' %}">Cadastrar nova Pessoa</a></li>
+        </ul>
+    </div>
 {% endblock %}
