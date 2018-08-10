@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 pillow = "*"
 python-decouple = "*"
+django-bootstrap-form = "*"
+"psycopg2" = "*"
 
 [dev-packages]
 
