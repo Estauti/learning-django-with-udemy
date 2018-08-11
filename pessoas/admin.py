@@ -4,4 +4,3 @@ from . import models
 # Register your models here.
 
 admin.site.register(models.Person)
-admin.site.register(models.Document)
