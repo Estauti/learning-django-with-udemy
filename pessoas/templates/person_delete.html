@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Deletar Pessoa{% endblock %}
+
+{% block main %}
+    
+    <h2>Tem certeza que quer deletar o(a) {{person.nome_completo}}?</h2>
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row" style="padding:15px;">
+            <input type="submit" value="Deletar" class="btn btn-danger">        
+            <a href="{% url 'person_list' %}" class="btn btn-secondary" style="margin-left:10px;">Voltar</a>
+        </div>
+    </form>
+
+{% endblock %}
