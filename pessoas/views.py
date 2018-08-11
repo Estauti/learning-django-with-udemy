@@ -6,13 +6,13 @@ from . import forms
 # Create your views here.
 
 def home(request):
-    return render(request, 'pessoas/index.html')
+    return render(request, 'index.html')
 
 
 @login_required
 def person_list(request):
     persons = models.Person.objects.all()
-    return render(request, 'pessoas/person_list.html', {'persons': persons})
+    return render(request, 'person_list.html', {'persons': persons})
 
 
 @login_required
@@ -22,7 +22,7 @@ def person_new(request):
     if form.is_valid():
         form.save()
         return redirect('person_list')
-    return render(request, 'pessoas/person_new.html', {'form': form})
+    return render(request, 'person_new.html', {'form': form})
 
 
 @login_required
@@ -33,7 +33,7 @@ def person_edit(request, id):
     if form.is_valid():
         form.save()
         return redirect('person_list')
-    return render(request, 'pessoas/person_new.html', {'form': form})
+    return render(request, 'person_new.html', {'form': form})
 
 
 @login_required
@@ -44,4 +44,4 @@ def person_delete(request, id):
         person.delete()
         return redirect('person_list')
 
-    return render(request, 'pessoas/person_delete.html', {'person':person})
+    return render(request, 'person_delete.html', {'person':person})
