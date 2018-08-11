@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block main %}
+
+    <h2>{% block h2 %}{% endblock %}</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-4">
+                {% csrf_token %}
+                {% block form %}{% endblock %}
+            </div>
+        </div>
+    </form>  
+
+{% endblock %}
+

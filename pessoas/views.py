@@ -45,3 +45,36 @@ def person_delete(request, id):
         return redirect('person_list')
 
     return render(request, 'person_delete.html', {'person':person})
+
+@login_required
+def document_list(request):
+    docs = models.Document.objects.all()
+    return render(request, 'document_list.html', {'docs':docs})
+
+@login_required
+def document_new(request):
+    form = forms.DocumentForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('document_list')
+    return render(request, 'document_new.html', {'form':form})
+
+@login_required
+def document_edit(request, id):
+    doc = get_object_or_404(models.Document, pk=id)
+    form = forms.DocumentForm(request.POST or None, instance=doc)
+
+    if form.is_valid():
+        form.save()
+        return redirect('document_list')
+    return render(request, 'document_new.html', {'form': form, 'doc':doc})
+
+@login_required
+def document_delete(request, id):
+    doc = get_object_or_404(models.Document, pk=id)
+
+    if request.method == 'POST':
+        doc.delete()
+        return redirect('document_list')
+    return render(request, 'document_delete.html', {'doc':doc})

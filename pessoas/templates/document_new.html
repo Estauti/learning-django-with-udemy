@@ -1,0 +1,11 @@
+{% extends "base/base_new.html" %}
+{% load bootstrap %}
+
+{% block title %}Cadastro de Documentos{% endblock %}
+
+{% block h2 %}Cadastre um novo documento abaixo{% endblock %}
+
+{% block form %}
+    {{form|bootstrap}}
+    <input type="submit" value="Salvar" class="btn btn-primary">
+{% endblock %}

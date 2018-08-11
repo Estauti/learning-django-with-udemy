@@ -1,0 +1,27 @@
+{% extends "base/base_list.html" %}
+
+{% block title %}Listagem de Documentos{% endblock %}
+
+{% block h1 %}Listagem de Documentos{% endblock %}
+
+{% block list %}
+
+    {% for doc in docs %}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-4">
+                    {{doc}}
+                </div>
+                <div class="col-1">
+                    <a href="{% url 'document_edit' doc.id %}">Editar</a>
+                </div>
+                <div class="col-1">
+                    <a href="{% url 'document_delete' doc.id%}">Deletar</a>
+                </div>
+            </div>                   
+        </li>
+    {% endfor %}
+
+{% endblock %}
+
+{% block a_add_button %}<a href="{% url 'document_new' %}">Cadastrar novo Documento</a>{% endblock %}
