@@ -4,7 +4,8 @@
 
 {% block main %}
 
-    <h2>{% block h2 %}{% endblock %}</h2>
+    <h2>{% block h2 %}{% endblock %}</h2>    
+    {% block alert %}{% endblock %}
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}

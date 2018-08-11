@@ -4,6 +4,14 @@
 
 {% block h2 %}Tem certeza que quer deletar o(a) {{doc}}?{% endblock %}
 
+{% block alert %}
+    {% if doc.person %}
+        <div class="alert alert-danger" role="alert">
+            ATENÇÃO: se você excluir esse documento, o registro da Pessoa {{doc.person}} também será excluido.
+        </div>
+    {% endif %}    
+{% endblock %}
+
 {% block buttons %}
     <input type="submit" value="Deletar" class="btn btn-danger">        
     <a href="{% url 'person_list' %}" class="btn btn-secondary" style="margin-left:10px;">Voltar</a>
