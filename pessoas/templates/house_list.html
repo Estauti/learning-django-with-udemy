@@ -1,0 +1,27 @@
+{% extends 'base/base_list.html' %}
+
+{% block title %}Listagem de Casas{% endblock %}
+
+{% block h1 %}Listagem de Casas{% endblock %}
+
+{% block list %}
+
+    {% for house in houses %}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-4">
+                    {{house}}
+                </div>
+                <div class="col-1">
+                    <a href="{% url 'house_edit' house.id%}">Editar</a>
+                </div>
+                <div class="col-1">
+                    <a href="{% url 'house_delete' house.id %}">Deletar</a>
+                </div>
+            </div>                   
+        </li>
+    {% endfor %}
+
+{% endblock %}
+
+{% block a_add_button %}<a href="{% url 'house_new' %}">Cadastrar nova Casa</a>{% endblock %}

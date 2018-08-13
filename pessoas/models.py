@@ -19,3 +19,12 @@ class Person(models.Model):
 
     def __str__(self):
         return self.name
+
+class House(models.Model):
+    description = models.CharField(max_length=200)
+    value = models.DecimalField(max_digits=11, decimal_places=2)
+    photo = models.ImageField(upload_to='fotos_casas')
+    owner = models.ForeignKey(Person, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.description
