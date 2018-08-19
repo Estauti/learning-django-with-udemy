@@ -5,8 +5,16 @@
 
 {% block h2 %}Cadastre uma nova pessoa abaixo{% endblock %}
 
+{% block under_title %}
+    {% if num_choices == 0 %}
+        <div class="alert alert-warning" role="alert">
+            Você precisa cadastrar um Documento antes!
+            <a href="{% url 'document_new' %}">Cadastrar</a>
+        </div>
+    {% endif %}
+{% endblock %}
+
 {% block form %}
-    {% csrf_token %}
     {{form|bootstrap}}
     <input type="submit" value="Salvar" class="btn btn-primary">
 {% endblock %}

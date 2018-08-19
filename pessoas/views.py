@@ -17,12 +17,18 @@ def person_list(request):
 
 @login_required
 def person_new(request):
-    form = forms.PersonForm(request.POST or None, request.FILES or None)
+    unused_documents = models.Document.objects.filter(person__isnull=True)
+    num_choices = len(unused_documents)
+    form = forms.PersonForm(
+        True,         
+        request.POST or None, 
+        request.FILES or None,               
+    )
 
     if form.is_valid():
         form.save()
         return redirect('person_list')
-    return render(request, 'person_new.html', {'form': form})
+    return render(request, 'person_new.html', {'form': form, 'num_choices': num_choices})
 
 
 @login_required
