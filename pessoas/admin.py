@@ -6,3 +6,4 @@ from . import models
 admin.site.register(models.Person)
 admin.site.register(models.Document)
 admin.site.register(models.House)
+admin.site.register(models.School)
